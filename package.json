@@ -4,6 +4,10 @@
   "version": "0.1.0",
   "author": "Lucas Hubert <hubertlucas41@gmail.com>",
   "dependencies": {
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@mui/material": "^5.7.0",
+    "@types/react-helmet": "^6.1.5",
     "gatsby": "^4.14.0",
     "gatsby-plugin-gatsby-cloud": "^4.14.0",
     "gatsby-plugin-image": "^2.14.1",

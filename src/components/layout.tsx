@@ -8,11 +8,16 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
+import { CssBaseline, ThemeProvider } from "@mui/material"
 
 import Header from "./header"
-import "./layout.css"
+import theme from "../theme"
 
-const Layout = ({ children }) => {
+interface ILayout {
+  children: React.ReactNode
+}
+
+const Layout = ({ children }: ILayout) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -24,28 +29,11 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: `var(--size-content)`,
-          padding: `var(--size-gutter)`,
-        }}
-      >
-        <main>{children}</main>
-        <footer
-          style={{
-            marginTop: `var(--space-5)`,
-            fontSize: `var(--font-sm)`,
-          }}
-        >
-          © {new Date().getFullYear()} &middot; Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
-      </div>
-    </>
+      <main>{children}</main>
+    </ThemeProvider>
   )
 }
 
