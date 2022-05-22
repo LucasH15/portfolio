@@ -1,13 +1,29 @@
 import { createTheme, responsiveFontSizes } from '@mui/material/styles'
 
 const SPACING = 4
-const TITLE_FONT = ['PT Serif', 'serif'].join(',')
+const TITLE_FONT = ['Patua One', 'cursive'].join(',')
+
+export const colors = {
+    primary: {
+        main: '#356ADB'
+    },
+    secondary: {
+        main: '#EBC975'
+    },
+    text: {
+        primary: '#1A1404',
+        secondary: '#FFFFFF'
+    }
+}
 
 let theme = createTheme({
     spacing: SPACING,
-    palette: {},
+    palette: {
+        ...colors,
+        tonalOffset: 0.1
+    },
     typography: {
-        fontFamily: ['Roboto', 'sans-serif'].join(','),
+        fontFamily: ['Source Sans Pro', 'sans-serif'].join(','),
         h1: {
             fontFamily: TITLE_FONT
         },
@@ -34,6 +50,11 @@ let theme = createTheme({
         }
     },
     components: {
+        MuiButtonBase: {
+            defaultProps: {
+                disableRipple: true
+            }
+        },
         MuiButton: {
             styleOverrides: {
                 root: {
@@ -52,17 +73,13 @@ let theme = createTheme({
                 }
             }
         },
-        MuiTypography: {
-            styleOverrides: {
-                h1: {
-                    marginBottom: SPACING * 4
-                }
-            }
-        },
-        MuiTab: {
+        MuiToolbar: {
             styleOverrides: {
                 root: {
-                    textTransform: 'none'
+                    '.MuiButton-root[href]': {
+                        marginLeft: SPACING * 4,
+                        marginRight: SPACING * 4
+                    }
                 }
             }
         }

@@ -43,7 +43,9 @@ function Seo({ description, lang, meta, title }: ISeo) {
                 },
                 {
                     property: `og:title`,
-                    content: title
+                    content: defaultTitle
+                        ? `${title} - ${defaultTitle}`
+                        : `${title}`
                 },
                 {
                     property: `og:description`,
@@ -63,7 +65,9 @@ function Seo({ description, lang, meta, title }: ISeo) {
                 },
                 {
                     name: `twitter:title`,
-                    content: title
+                    content: defaultTitle
+                        ? `${title} - ${defaultTitle}`
+                        : `${title}`
                 },
                 {
                     name: `twitter:description`,

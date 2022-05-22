@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { Link } from 'gatsby-plugin-react-intl'
 import {
     AppBar,
     Button,
@@ -10,9 +11,14 @@ import {
     Toolbar,
     Typography
 } from '@mui/material'
-import MenuIcon from '@mui/icons-material/Menu'
+import { useIntl } from 'gatsby-plugin-react-intl'
+
+import icon from '../images/icon.png'
+import MenuIcon from '../icons/MenuIcon'
+import { colors } from '../Theme'
 
 const Header = () => {
+    const intl = useIntl()
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
         null
     )
@@ -29,14 +35,13 @@ const Header = () => {
         <AppBar position="static">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="div"
-                        sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
-                    >
-                        LOGO
-                    </Typography>
+                    <Grid sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}>
+                        <img
+                            src={icon}
+                            width="50px"
+                            alt="Memoji Lucas Hubert"
+                        />
+                    </Grid>
 
                     <Grid
                         sx={{
@@ -52,7 +57,7 @@ const Header = () => {
                             onClick={handleOpenNavMenu}
                             color="inherit"
                         >
-                            <MenuIcon />
+                            <MenuIcon primarycolor={colors.text.secondary} />
                         </IconButton>
                         <Menu
                             id="menu-appbar"
@@ -74,22 +79,24 @@ const Header = () => {
                         >
                             <MenuItem onClick={handleCloseNavMenu}>
                                 <Typography textAlign="center">
-                                    Accueil
+                                    {intl.formatMessage({ id: 'home' })}
                                 </Typography>
                             </MenuItem>
                         </Menu>
                     </Grid>
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="div"
+                    <Grid
                         sx={{
                             flexGrow: 1,
-                            display: { xs: 'flex', md: 'none' }
+                            display: { xs: 'flex', md: 'none' },
+                            justifyContent: 'right'
                         }}
                     >
-                        LOGO
-                    </Typography>
+                        <img
+                            src={icon}
+                            width="50px"
+                            alt="Memoji Lucas Hubert"
+                        />
+                    </Grid>
                     <Grid
                         sx={{
                             flexGrow: 1,
@@ -99,8 +106,10 @@ const Header = () => {
                         <Button
                             onClick={handleCloseNavMenu}
                             sx={{ my: 2, color: 'white', display: 'block' }}
+                            component={Link}
+                            to="/"
                         >
-                            Accueil
+                            {intl.formatMessage({ id: 'home' })}
                         </Button>
                     </Grid>
                 </Toolbar>

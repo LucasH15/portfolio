@@ -19,15 +19,31 @@ module.exports = {
         {
             resolve: `gatsby-plugin-manifest`,
             options: {
-                name: `gatsby-starter-default`,
-                short_name: `starter`,
+                name: `Lucas Hubert`,
+                short_name: `lh`,
+                lang: `fr`,
                 start_url: `/`,
-                background_color: `#663399`,
-                // This will impact how browsers show your PWA/website
-                // https://css-tricks.com/meta-theme-color-and-trickery/
-                // theme_color: `#663399`,
-                display: `minimal-ui`,
-                icon: `src/images/gatsby-icon.png`
+                background_color: `#356ADB`,
+                theme_color: `#356ADB`,
+                display: `standalone`,
+                icon: `src/images/icon.png`
+            }
+        },
+        {
+            resolve: `gatsby-plugin-react-intl`,
+            options: {
+                path: `${__dirname}/src/intl`,
+                languages: [`fr`],
+                defaultLanguage: `fr`,
+                redirect: true,
+                redirectDefaultLanguageToRoot: false
+            }
+        },
+        {
+            resolve: `gatsby-plugin-google-fonts`,
+            options: {
+                fonts: [`Patua One`, `Source Sans Pro`],
+                display: 'swap'
             }
         }
     ]
