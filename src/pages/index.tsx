@@ -11,7 +11,7 @@ const Index: React.FC = () => {
     return (
         <Layout>
             <Seo title="Accueil" />
-            <Typography variant="h1">
+            <Typography variant="h1" color="primary.dark">
                 {intl.formatMessage({ id: 'hello' })}
             </Typography>
         </Layout>

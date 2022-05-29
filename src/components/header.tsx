@@ -12,10 +12,16 @@ import {
     Typography
 } from '@mui/material'
 import { useIntl } from 'gatsby-plugin-react-intl'
+import { GatsbyLinkProps } from 'gatsby'
 
 import icon from '../images/icon.png'
 import MenuIcon from '../icons/MenuIcon'
 import { colors } from '../Theme'
+
+const CustomLink = React.forwardRef<
+    HTMLAnchorElement,
+    Omit<GatsbyLinkProps<unknown>, 'ref'>
+>((props, _ref) => <Link {...props} role={undefined} />)
 
 const Header = () => {
     const intl = useIntl()
@@ -35,7 +41,7 @@ const Header = () => {
         <AppBar position="static">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <Grid sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}>
+                    <Grid sx={{ mr: 4, display: { xs: 'none', md: 'flex' } }}>
                         <img
                             src={icon}
                             width="50px"
@@ -77,9 +83,22 @@ const Header = () => {
                                 display: { xs: 'block', md: 'none' }
                             }}
                         >
-                            <MenuItem onClick={handleCloseNavMenu}>
+                            <MenuItem
+                                onClick={handleCloseNavMenu}
+                                component={CustomLink}
+                                to="/"
+                            >
                                 <Typography textAlign="center">
                                     {intl.formatMessage({ id: 'home' })}
+                                </Typography>
+                            </MenuItem>
+                            <MenuItem
+                                onClick={handleCloseNavMenu}
+                                component={CustomLink}
+                                to="/about"
+                            >
+                                <Typography textAlign="center">
+                                    {intl.formatMessage({ id: 'about' })}
                                 </Typography>
                             </MenuItem>
                         </Menu>
@@ -105,11 +124,28 @@ const Header = () => {
                     >
                         <Button
                             onClick={handleCloseNavMenu}
-                            sx={{ my: 2, color: 'white', display: 'block' }}
-                            component={Link}
+                            sx={{
+                                my: 2,
+                                color: 'white.main',
+                                display: 'block'
+                            }}
+                            component={CustomLink}
                             to="/"
                         >
                             {intl.formatMessage({ id: 'home' })}
+                        </Button>
+
+                        <Button
+                            onClick={handleCloseNavMenu}
+                            sx={{
+                                my: 2,
+                                color: 'white.main',
+                                display: 'block'
+                            }}
+                            component={CustomLink}
+                            to="/about"
+                        >
+                            {intl.formatMessage({ id: 'about' })}
                         </Button>
                     </Grid>
                 </Toolbar>

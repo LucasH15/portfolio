@@ -1,11 +1,14 @@
 import { createTheme, responsiveFontSizes } from '@mui/material/styles'
+import { lighten } from '@mui/material'
 
 const SPACING = 4
 const TITLE_FONT = ['Patua One', 'cursive'].join(',')
 
 export const colors = {
     primary: {
-        main: '#356ADB'
+        main: '#356ADB',
+        light: '#4978DE',
+        dark: '#2D5ABA'
     },
     secondary: {
         main: '#EBC975'
@@ -13,6 +16,9 @@ export const colors = {
     text: {
         primary: '#1A1404',
         secondary: '#FFFFFF'
+    },
+    white: {
+        main: '#FFFFFF'
     }
 }
 
@@ -78,7 +84,24 @@ let theme = createTheme({
                 root: {
                     '.MuiButton-root[href]': {
                         marginLeft: SPACING * 4,
-                        marginRight: SPACING * 4
+                        marginRight: SPACING * 4,
+                        zIndex: 1,
+                        '&:before': {
+                            content: '""',
+                            position: 'absolute',
+                            bottom: 0,
+                            left: `-${SPACING}px`,
+                            right: `-${SPACING}px`,
+                            height: 0,
+                            backgroundColor: lighten(colors.primary.main, 0.4),
+                            zIndex: '-1',
+                            transition: 'height 300ms'
+                        },
+                        '&[aria-current], &:hover': {
+                            '&:before': {
+                                height: SPACING * 2
+                            }
+                        }
                     }
                 }
             }
