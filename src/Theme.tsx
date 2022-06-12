@@ -31,7 +31,8 @@ let theme = createTheme({
     typography: {
         fontFamily: ['Source Sans Pro', 'sans-serif'].join(','),
         h1: {
-            fontFamily: TITLE_FONT
+            fontFamily: TITLE_FONT,
+            marginBottom: SPACING * 8
         },
         h2: {
             fontFamily: TITLE_FONT

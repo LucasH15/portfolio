@@ -29,7 +29,8 @@
         "singleQuote": true,
         "trailingComma": "none",
         "tabWidth": 4,
-        "semi": false
+        "semi": false,
+        "printWidth": 120
       }
     ],
     "react/display-name": 0,
@@ -40,6 +41,7 @@
         "varsIgnorePattern": "^_",
         "caughtErrorsIgnorePattern": "^_"
       }
-    ]
+    ],
+    "react/no-unescaped-entities": 0
   }
 }

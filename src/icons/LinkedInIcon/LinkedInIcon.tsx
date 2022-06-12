@@ -1,10 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { SvgIcon } from '@mui/material'
+import { SvgIconProps } from '@mui/material/SvgIcon/SvgIcon'
 
 import { colors } from '../../Theme'
 
-interface ILinkedInIcon {
+interface ILinkedInIcon extends SvgIconProps {
     primarycolor?: string
 }
 

@@ -5,25 +5,20 @@ import { SvgIconProps } from '@mui/material/SvgIcon/SvgIcon'
 
 import { colors } from '../../Theme'
 
-interface IMenuIcon extends SvgIconProps {
+interface IPanIcon extends SvgIconProps {
     primarycolor?: string
 }
 
-function MenuIcon({ primarycolor, ...props }: IMenuIcon) {
+function PanIcon({ primarycolor, ...props }: IPanIcon) {
     return (
         <SvgIcon {...props} htmlColor="transparent" viewBox="0 0 20 20">
             <path
-                d="M14,5.9H16a1,1,0,0,0,0-2H4.05a1,1,0,0,0,0,2H14Z"
+                d="M14.66,4.85a1.82,1.82,0,0,0-1.6-1H11.61A1.84,1.84,0,0,0,10,2.24,1.84,1.84,0,0,0,8.31,3.85H6.94a1.8,1.8,0,0,0-1.6,1l-.66,1.4H15.32Z"
                 fill={primarycolor || colors.text.primary}
                 strokeOpacity={0}
             />
             <path
-                d="M6.09,11h-2a1,1,0,0,1,0-2H16a1,1,0,0,1,0,2H9.5"
-                fill={primarycolor || colors.text.primary}
-                strokeOpacity={0}
-            />
-            <path
-                d="M4.05,16.1a1,1,0,0,1,0-2H16a1,1,0,0,1,0,2Z"
+                d="M17.4,7.6H2.6a.7.7,0,0,0-.7.7v1a.7.7,0,0,0,.48.66l1.08.49v4.93a2.4,2.4,0,0,0,2.4,2.41h8.27a2.41,2.41,0,0,0,2.41-2.41V10.42l1.08-.49a.7.7,0,0,0,.48-.66v-1A.71.71,0,0,0,17.4,7.6Z"
                 fill={primarycolor || colors.text.primary}
                 strokeOpacity={0}
             />
@@ -31,8 +26,8 @@ function MenuIcon({ primarycolor, ...props }: IMenuIcon) {
     )
 }
 
-MenuIcon.propTypes = {
+PanIcon.propTypes = {
     primarycolor: PropTypes.string
 }
 
-export default MenuIcon
+export default PanIcon
